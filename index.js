@@ -224,16 +224,16 @@ Use the getRandomFlavors function and new arrays below to do the following:
 */
 
 
-ffunction getRandomFlavors(arrOne, arrTwo, arrThree, arrFour){
+function getRandomFlavors(arrOne, arrTwo, arrThree, arrFour){
     let randomFlavors = [];
-   for(let i = 0; i< arrOne.length;i++){
-     let rand = arrOne[Math.floor(Math.random() * arrOne.length -1)];
-     // console.log(rand)
-     if(rand[i] !== undefined){
-       randomFlavors.push(rand);
-       
-     }
-   }
+    let used = []
+    let combo = [...arrOne,...arrTwo,...arrThree, ...arrFour];
+ 
+     for(let i = 0; randomFlavors.length < 31;i++){
+       used = combo[Math.floor(Math.random() * combo.length)];
+       randomFlavors.push(used);
+    }
+    return randomFlavors;
  }
  
  console.log(getRandomFlavors(regionalFlavors, seasonalFlavors, newFlavors, originalFlavors))
